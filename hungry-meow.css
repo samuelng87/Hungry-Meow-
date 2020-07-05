@@ -1,52 +1,173 @@
+.logo {
+  position:absolute;
+  right:110px;
+  font-family:'Petit Formal Script', cursive;
+  top:5px;
+}
 
+.container {
+  text-align:center;
+}
 
 * {
     margin: 0;
     padding: 0;
   }
 
-#navbar {
-background-color:rgb(223, 108, 127);
-position: fixed;
-width: 100%;
-height:45px ;
-border-bottom: 0.5px solid darkgrey;
 
-} 
-
-#navbar img{
-  margin:2px 15rem 0px 0rem;
-      border-radius:10px;
-      width: 80px;
-    
-}
-
-.nav-list2 {
-display: flex;
-justify-content:center;
-align-items: center;
-list-style: none;
-
-
-}
-
-
-.nav-list2 a {
-    text-decoration: none;  
-font-size: 17px;
-margin: 100px;
- color: whitesmoke;
- padding: 12px;
- 
-}
-
-  .nav-list2 a:hover {
-background-color:var(--main-gray);
-padding-top: 12px;
-padding-bottom: 15px;
-transition: 1s;
+ :root {
+    --main-gray: #303841;
+       --primary-color:pink;
+    --overlay-color:lightpink;
+    --menu-speed:0.75s;
   }
 
+
+  .menu-warp {
+    position: fixed;
+    top: 0;
+    left:0;
+    z-index: 1;
+    display:flex;
+}
+
+.menu-warp .toggler {
+position: absolute;
+top:0;
+left: 0;
+z-index: 2;
+cursor:pointer;
+width:50px;
+height:50px;
+opacity: 0;
+}
+
+
+.menu-warp .hamburger {
+    position:absolute;
+    top: 0;
+    left: 0;
+    z-index: 1;
+    width: 60px;
+    height: 60px;
+    padding:1rem;
+    background:var(--primary-color) ;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}  
+
+/*Hamburger line*/
+
+.menu-warp .hamburger > div {
+    position: relative;
+    width: 100%;
+    height:2px;
+    background-color: #fff;
+    display: flex;
+    align-items: center;
+    justify-content: center;   
+    transition: all 0.4s ease;
+}
+
+
+/* Top and bottom line */
+.menu-warp .hamburger > div:before, 
+.menu-warp .hamburger > div:after {
+    content: '';
+    position: absolute;
+    z-index: 1;
+    top:-10px;
+width:100%;
+height: 2px;
+background: inherit;
+}  
+
+/* Moves line Down */
+.menu-warp .hamburger > div:after {
+    top:10px;
+    }
+  
+  /*Toggler animate*/ 
+.menu-warp .toggler:checked + .hamburger > div {
+    transform: rotate(135deg);
+}
+
+/*Turn line into X */
+.menu-warp .toggler:checked + .hamburger > div:before,  
+.menu-warp .toggler:checked + .hamburger > div:after {
+    top:0;
+    transform: rotate(90deg);
+    
+}  
+ 
+ /* Rotate on hover when Checked */ 
+.menu-warp .toggler:checked:hover + .hamburger > div {
+transform: rotate(225deg);
+}
+ 
+ /* show menu*/
+.menu-warp .toggler:checked ~ .menu  {
+visibility: visible;
+} 
+  
+ .menu-warp .toggler:checked ~ .menu > div {
+transform:scale(1);
+transition-duration:var(--menu-speed) ;
+}
+  
+  .menu-warp .toggler:checked ~ .menu > div > div {
+    opacity: 1;
+    transition: opacity 0.4s ease;
+}
+  
+.menu-warp .menu {
+    position: fixed;
+    top:0;
+    left: 0;
+    width: 100%;
+    visibility:hidden;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}  
+ 
+.menu-warp .menu > div {
+    background:var(--overlay-color);
+    border-radius: 50%;
+    width:50vw;
+    height:50vw;
+    display:flex;
+    flex: none;
+    align-items:center;
+    justify-content:center;
+    transform: scale(0);
+    transition: all 0.4s ease;
+    opacity:0.7;
+ }  
+  
+ .menu-warp .menu > div > div {
+text-align: center;
+max-width: 90vw;
+max-height: 100vh;
+opacity: 0;
+transition: opacity 0.4s ease; 
+}  
+ 
+.menu-warp .menu > div > div > ul > li {
+list-style: none;
+color:#fff;
+font-size: 1.5rem;
+padding:1rem;
+}  
+
+.menu-warp .menu > div > div > ul > li a {
+color:inherit;
+text-decoration: none;
+transition:color 0.4s ease;
+
+}  
 
 
   #welcome-section {
@@ -56,7 +177,7 @@ justify-content:center;
 align-items:center;
 background-color:white;
 width:100%;
-height:47rem;
+height:50rem;
 }
 
 #welcome-section img {
@@ -103,6 +224,7 @@ font-size: x-small;
 .feature-overflows {
   overflow-y: auto;
   width: 100%;
+
 }
 
 .feature-flex {
@@ -116,7 +238,12 @@ margin:auto 50px ;
   height: 450px;
   padding:5px;
   border-radius:9px;
+  object-fit: cover;
 } 
+
+.bowl-four img {
+ width:500px;
+}
 
 .feature-flex h5  {
 font-size:small;
@@ -138,7 +265,10 @@ padding-bottom: 10rem;
     color: honeydew;
 }
 
-
+.bowl-size1 img {
+   object-fit: cover;
+  border:20px solid white;
+}
 
 ol {
   display: grid;
@@ -154,8 +284,8 @@ font-size:11px;
 } 
 
 .project-grid img {
-  width:300px;
-  height: 300px;
+  width:290px;
+  height:300px;
   border-radius:9px;
 }
 
@@ -164,58 +294,99 @@ text-decoration: none;
   list-style: none;
 }
 
+
+
   .box-bowl {
 border: 2px solid darkgrey;
 border-radius: 12px;
 padding: 3px;
+    
 
   }
 
 .project-grid {
    display: grid;
    grid-template-columns: 1fr 1fr 1fr;
-   grid-gap: 5rem;
-  margin-bottom: 50px;
+   grid-gap: 3rem;
+  margin-bottom: 50px;    
 }
 
 
+  
+  
 
 
-@media (max-width:1200px) {
 
+@media (max-width:1000px) {
+  
+     
+     
+ #welcome-section img {
+width:220px;
+border-radius:3px;   
+
+} 
     .project-grid {
         display: grid;
-        grid-template-columns:300px 300px 300px;
-       grid-gap: 2rem;
+        grid-template-columns:1fr 1fr 1fr;
+       grid-gap: 3rem;
+
       }
   
-  .project-grid a {
-     
-   
-  }
-  
-
+.bowl-size1 img {
+   object-fit: cover;
+  border:60px solid white;
+}
 
 }
 
 
 /**ipad screen **/
-@media (max-width:800px) {
+@media (max-width:769px) {
 
-    .project-grid {
-        display: grid;
-        grid-template-columns:300px 300px ;
-       grid-gap: 5rem;
-     }
+  .project-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-gap: 1rem;
+   margin-bottom: 15rem;
+ }
      
+ #welcome-section img {
+width:200px;
+border-radius:3px;   
+
+} 
+  
 }
 
 
-/**** phone for navbar *****/  
-@media (max-width:500px) {
 
+
+/**** phone for navbar *****/  
+@media (max-width:700px) {
+  
+  .bowl-size1 img {
+   object-fit: cover;
+  border:30px solid white;
+}
+
+.menu-warp .menu > div {
+    background:var(--overlay-color);
+    border-radius: 50%;
+    width:70vw;
+    height:70vw;
+    display:flex;
+    flex: none;
+    align-items:center;
+    justify-content:center;
+    transform: scale(0);
+    transition: all 0.4s ease;
+    opacity:0.7;
+ }  
+  
     .contact-links {
         padding: 20px;
+        text-align: center;
     }
 
     .contact-section-header h2{
@@ -227,42 +398,9 @@ padding: 3px;
     margin: 5rem auto;
 }
 
-#navbar {
-  background-color:rgb(223, 108, 127);
-  position: fixed;
-  width: 100%;
-  height:45px ;
-  border-bottom: 0.5px solid darkgrey;
-  
-  } 
-  
-  #navbar img{
-      width: 65px;
-     margin:6px 0px 0px 0px;
-      border-radius:10px;
-  }
-  
-  .nav-list2 {
-  display: flex;
-  justify-content:center;
-  align-items: center;
-  list-style: none;
-  }
-  
-  
-  .nav-list2 a {
-      text-decoration: none;  
-  font-size: 15px;
-font-weight: bolder;  
-margin: 18px;
-   color: whitesmoke;
-   padding: 7.5px;
-   
-  }
-  
-    
+
     #welcome-section {
-        height:42rem;
+        height:57rem;
         }
 
     #welcome-section img {
@@ -294,7 +432,7 @@ margin: 18px;
           font-style: italic;
           color: honeydew;
           margin:10px auto;
-          padding-bottom: 10rem;
+          padding-bottom: 20rem;
           }
 
           .project-grid img {
@@ -320,7 +458,7 @@ margin: 18px;
              display: grid;
              grid-template-columns: 1fr 1fr;
              grid-gap: 1rem;
-            margin-bottom: 50px;
+            margin-bottom: 15rem;
           }
   
         
@@ -349,22 +487,6 @@ span {
 transition: 0.5s;
  }
 
- :root {
-    --main-gray: #303841;
-  }
-
-
-
-  /****
-  background: var(--main-gray);
-  width:100%;
-  height:40rem;
-  color: whitesmoke;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-*****/
-
 
 html {
     scroll-behavior:smooth;
@@ -373,7 +495,7 @@ html {
 #contact {
     background-color:var(--main-gray) ;
     width: 100%;
-    height:50rem;
+    height:70rem;
     color: honeydew;
     display: flex;
     flex-direction: column;
@@ -407,5 +529,72 @@ font-weight: bolder;
 
 
 
-/**create iframe media size for portfile view**/
+@media (max-width:500px) {
+  
+ #welcome-section img {
+        width:90px;
+        }
+}
 
+@media (max-width:350px) {
+
+
+
+  .box-bowl {
+    border: 2px solid darkgrey;
+    border-radius: 12px;
+    padding: 1px;
+        
+    
+      }
+
+  .project-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-gap: 0.2rem;
+   margin-bottom: 50px;    
+ }
+
+.project-grid img {
+  width:150px;
+}
+
+  
+ #welcome-section img {
+        width:60px;
+        }
+  
+  
+.menu-warp .menu > div {
+    background:var(--overlay-color);
+    border-radius: 50%;
+    width:70vw;
+    height:120vw;
+    display:flex;
+    flex: none;
+    align-items:center;
+    justify-content:center;
+    transform: scale(0);
+    transition: all 0.4s ease;
+    opacity:0.7;
+ }    
+  
+  .welcome-section p {
+    font-size:8px;
+  } 
+  
+  .menu a {
+    font-size:8px;
+    line-height:0.5;
+  }
+  
+#welcome-section {
+    height: 20rem;
+}  
+  
+  
+.logo {
+  right:5px;
+}  
+  
+}
