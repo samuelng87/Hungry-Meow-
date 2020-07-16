@@ -9,15 +9,15 @@ const container = document.querySelector('.container')
 breatheAnimation()
 
  function breatheAnimation () {
-     text.innerHTML = 'Greetings'
+     text.innerHTML = 'Luxury'
      container.className = 'container grow'
 
      setTimeout(() => {
 
-text.innerText = 'Thank you for visiting us'
+text.innerText = 'Classy'
 
 setTimeout(() => {
-text.innerText = 'Please Stay Classy Cheers'
+text.innerText = 'Excellent'
 container.className = 'container shrink'
 }, holdTime)
 
@@ -26,6 +26,7 @@ container.className = 'container shrink'
 }
 
 setInterval(breatheAnimation, totalTime)
+
 
 
 

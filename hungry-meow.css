@@ -1,8 +1,49 @@
-.logo {
-  position:absolute;
-  right:110px;
-  font-family:'Petit Formal Script', cursive;
-  top:5px;
+.video-bowl {
+padding:5rem 0rem;
+  display:flex;
+  flex-direction:column;
+  justify-content:center;
+  align-items:center;
+  background-color:lightgray;
+  width:100%;
+  height:100%;
+  color:honeydew;
+}
+.video-bowl h2 {
+  font-size:2rem;
+  text-align:center;
+  padding-bottom: 5rem;
+}  
+
+.flex-video {
+  display:grid;
+ grid-template-columns:1fr 1fr ;
+ grid-gap: 9rem;
+
+}
+
+.flex-video img {
+width: 400px;
+height: 400px;
+border-radius:20px;
+}
+
+.flex-video iframe {
+  width: 400px;
+  height: 400px;
+  border-radius:20px;
+  }
+
+
+.video-align {
+  padding:10rem;
+}
+
+.qluevo-welcome-image img{
+  width: 100%;
+  height:360px;
+  object-fit: cover;
+
 }
 
 .container {
@@ -51,7 +92,6 @@ opacity: 0;
     width: 60px;
     height: 60px;
     padding:1rem;
-    background:var(--primary-color) ;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -63,7 +103,7 @@ opacity: 0;
     position: relative;
     width: 100%;
     height:2px;
-    background-color: #fff;
+    background-color:honeydew;
     display: flex;
     align-items: center;
     justify-content: center;   
@@ -109,6 +149,7 @@ transform: rotate(225deg);
  /* show menu*/
 .menu-warp .toggler:checked ~ .menu  {
 visibility: visible;
+top: 1rem;
 } 
   
  .menu-warp .toggler:checked ~ .menu > div {
@@ -134,7 +175,9 @@ transition-duration:var(--menu-speed) ;
 }  
  
 .menu-warp .menu > div {
-    background:var(--overlay-color);
+  border:1px solid grey;
+  box-shadow: gray;
+    background:goldenrod;
     border-radius: 50%;
     width:50vw;
     height:50vw;
@@ -144,7 +187,7 @@ transition-duration:var(--menu-speed) ;
     justify-content:center;
     transform: scale(0);
     transition: all 0.4s ease;
-    opacity:0.7;
+    opacity:0.9;
  }  
   
  .menu-warp .menu > div > div {
@@ -157,7 +200,7 @@ transition: opacity 0.4s ease;
  
 .menu-warp .menu > div > div > ul > li {
 list-style: none;
-color:#fff;
+color:honeydew;
 font-size: 1.5rem;
 padding:1rem;
 }  
@@ -178,10 +221,14 @@ align-items:center;
 background-color:white;
 width:100%;
 height:50rem;
+border: 1rem solid cornsilk;
+
 }
+
 
 #welcome-section img {
 width:300px;
+height:330px;
 border-radius:3px;   
 
 }
@@ -193,14 +240,25 @@ border-radius:3px;
 }
 
 .welcome-section p {
-    font-size: 10px;
-    font-style: italic;
+    font-size: 1.2rem;
     color: gray;
+    padding:1.2rem;
+ margin: 0px 4rem 0rem 4rem;
+ text-align: center;
+ line-height: 2;
 }
 
+.about-us {
+ display: flex;
+ flex-direction: column;
+ justify-content: center;
+ text-align:left;
+ 
 
+}
 
 #feature {
+  padding: 4rem 0px;
   display:flex;
   flex-direction:column;
   justify-content:center;
@@ -251,8 +309,10 @@ text-align: center;
 font-style: italic;
 color: honeydew;
 margin:10px auto;
-padding-bottom: 10rem;
+padding-bottom: 0rem;
 }
+
+
 
 #projects {
     display:flex;
@@ -263,19 +323,17 @@ padding-bottom: 10rem;
     width:100%;
     height:100%;
     color: honeydew;
-}
-
-.bowl-size1 img {
-   object-fit: cover;
-  border:20px solid white;
+    list-style:
 }
 
 ol {
   display: grid;
+  color: honeydew;
+
   grid-template-columns:1fr 1fr ;
 }
 
-li{
+li {
 font-size:11px;
 }
 
@@ -292,6 +350,7 @@ font-size:11px;
 .project-grid li {
 text-decoration: none;
   list-style: none;
+  
 }
 
 
@@ -300,22 +359,28 @@ text-decoration: none;
 border: 2px solid darkgrey;
 border-radius: 12px;
 padding: 3px;
-    
+  }
 
+  .project-tile h5 {
+    color: honeydew;
+padding-top: 1rem;
   }
 
 .project-grid {
    display: grid;
    grid-template-columns: 1fr 1fr 1fr;
    grid-gap: 3rem;
+   color: honeydew;
   margin-bottom: 50px;    
 }
 
-
+.qluevo-policies {
+  background-color: #f6f6f6;
+}
+.payment-logo ul {
+  display: flex;
+}
   
-  
-
-
 
 @media (max-width:1000px) {
   
@@ -333,16 +398,20 @@ border-radius:3px;
 
       }
   
-.bowl-size1 img {
-   object-fit: cover;
-  border:60px solid white;
-}
+
 
 }
 
 
 /**ipad screen **/
 @media (max-width:769px) {
+
+  .logo img {
+    width: 200px;
+    border-radius: 50%;
+    border: 1px solid white;
+  }
+
 
   .project-grid {
     display: grid;
@@ -364,24 +433,42 @@ border-radius:3px;
 
 /**** phone for navbar *****/  
 @media (max-width:700px) {
+
+
+  .logo {
+    position:absolute;
+    right:110px;
+    font-family:'Petit Formal Script', cursive;
+    top:5rem;
+    border-radius: 50%;
+    
+  }
   
-  .bowl-size1 img {
-   object-fit: cover;
-  border:30px solid white;
+.qluevo-welcome-image img {
+  width:100%;
+  height:100%;
+  object-fit: cover;
 }
 
+.menu-warp .toggler:checked ~ .menu  {
+  visibility: visible;
+  top: 10rem;
+  } 
+
 .menu-warp .menu > div {
-    background:var(--overlay-color);
+  border:1px solid grey;
+  box-shadow: gray;
+    background:goldenrod;
     border-radius: 50%;
-    width:70vw;
-    height:70vw;
+    width:90vw;
+    height:90vw;
     display:flex;
     flex: none;
     align-items:center;
     justify-content:center;
     transform: scale(0);
     transition: all 0.4s ease;
-    opacity:0.7;
+    opacity:0.9;
  }  
   
     .contact-links {
@@ -398,30 +485,38 @@ border-radius:3px;
     margin: 5rem auto;
 }
 
+.welcome-section p {
+  font-size: 1rem;
+  color: gray;
+  padding:1.2rem;
+margin: 0px 1px 0rem 1px;
+line-height: 1.5;
+}
 
     #welcome-section {
-        height:57rem;
+        height:32rem;
         }
 
     #welcome-section img {
-        width:150px;
+        width:120px;
+        height: 100px;
         }
 
         #welcome-section h1 {
           font-size:1.5rem;
           }
-
+      
 
           .feature-flex img {
-            width: 350px;
-            height: 350px;
+            width: 300px;
+            height: 300px;
             padding:5px;
             border-radius:9px;
           }
 
           .feature-section-header {
-            font-size: 30px;
-            margin: 10rem 0px 0px 0px;
+            font-size: 1.5rem;
+            margin: 0rem 0px 0px 0px;
             color: honeydew;
           }
 
@@ -431,14 +526,14 @@ border-radius:3px;
           text-align: center;
           font-style: italic;
           color: honeydew;
-          margin:10px auto;
-          padding-bottom: 20rem;
+          margin:0px auto;
           }
 
           .project-grid img {
-            width:150px;
+            width:154px;
             height: 150px;
             border-radius:10px;
+       
           }
           
           .project-grid li {
@@ -461,6 +556,46 @@ border-radius:3px;
             margin-bottom: 15rem;
           }
   
+          .video-bowl {
+            padding:5rem 0rem;
+              display:flex;
+              flex-direction:column;
+              justify-content:center;
+              align-items:center;
+              background-color:lightgray;
+              width:100%;
+              height:100%;
+              color:honeydew;
+            }
+
+            .video-bowl h2 {
+              font-size: 17px;
+              text-align:center;
+            }
+            
+            .flex-video {
+              display:grid;
+             grid-template-columns:1fr 1fr ;
+             grid-gap: 1rem;
+
+            }
+            
+            .flex-video iframe {
+            width: 160px;
+            height: 160px;
+            }
+
+            .flex-video img {
+              width: 160px;
+              height: 160px;
+              }
+              
+            
+            
+            .video-align {
+              padding:10rem;
+            }
+
         
 }
 
@@ -495,7 +630,7 @@ html {
 #contact {
     background-color:var(--main-gray) ;
     width: 100%;
-    height:70rem;
+    height:46rem;
     color: honeydew;
     display: flex;
     flex-direction: column;
@@ -512,7 +647,7 @@ line-height: 5;
 }
 
 .contact-section-header h2 {
-transform: scale(1.5);
+transform: scale(1.2);
 line-height: 3;
 font-weight: bolder;
 }
@@ -524,6 +659,8 @@ font-weight: bolder;
 
 .contact-links a {
     color: honeydew;
+    font-size: 3rem;
+    margin: 1.5rem;
     
 }
 
@@ -561,12 +698,15 @@ font-weight: bolder;
 
   
  #welcome-section img {
-        width:60px;
+  width: 80px;
+  height: 100px;
         }
   
   
 .menu-warp .menu > div {
-    background:var(--overlay-color);
+  border:1px solid grey;
+  box-shadow: gray;
+    background:goldenrod;
     border-radius: 50%;
     width:70vw;
     height:120vw;
@@ -576,11 +716,13 @@ font-weight: bolder;
     justify-content:center;
     transform: scale(0);
     transition: all 0.4s ease;
-    opacity:0.7;
+    opacity:0.9;
  }    
   
   .welcome-section p {
-    font-size:8px;
+    font-size:0.7rem;
+    line-height:1.6;
+    padding: 0rem 1.2rem;
   } 
   
   .menu a {
@@ -589,12 +731,34 @@ font-weight: bolder;
   }
   
 #welcome-section {
-    height: 20rem;
+    height:26rem;
 }  
   
   
 .logo {
   right:5px;
 }  
+  
+.feature-flex img {
+  width: 250px;
+  height: 250px;
+  padding:5px;
+  border-radius:9px;
+}
+.flex-video {
+  display:grid;
+ grid-template-columns:1fr 1fr ;
+ grid-gap: 10px;
+
+}
+
+.flex-video iframe {
+width: 150px;
+height: 150px;
+}
+.flex-video img {
+  width: 150px;
+  height: 150px;
+  }
   
 }
